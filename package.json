@@ -1,0 +1,41 @@
+{
+  "name": "connected-workbooks-addin",
+  "version": "1.0.0",
+  "description": "Office Task Pane add-in for exporting Excel selections via connected-workbooks",
+  "scripts": {
+    "start": "cross-env TS_NODE_PROJECT=tsconfig.node.json webpack serve --mode development",
+    "build": "cross-env TS_NODE_PROJECT=tsconfig.node.json webpack --mode production",
+    "build:dev": "cross-env TS_NODE_PROJECT=tsconfig.node.json webpack --mode development",
+    "sideload": "npx office-addin-debugging start manifest.xml desktop --app excel",
+    "validate": "npx office-addin-manifest validate manifest.xml",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "@fluentui/react-components": "^9.54.0",
+    "@microsoft/connected-workbooks": "file:../connected-workbooks",
+    "buffer": "^6.0.3",
+    "jszip": "^3.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/office-js": "^1.0.395",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/webpack": "^5.28.5",
+    "copy-webpack-plugin": "^12.0.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "office-addin-debugging": "^6.0.6",
+    "office-addin-dev-certs": "^2.0.6",
+    "office-addin-manifest": "^2.1.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
+}
