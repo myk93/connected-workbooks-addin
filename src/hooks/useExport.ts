@@ -33,15 +33,18 @@ export function useExport(): UseExportResult {
         try {
             await exportSelection(selection, state, scope);
 
-            const isDownload =
-                scope === "powerQuery" ||
-                state.mode === "powerQuery" ||
-                (scope !== "fullTable" && state.mode === "download") ||
-                (scope === "fullTable" && state.mode === "download");
-            setSuccess(isDownload
-                ? "Workbook downloaded successfully."
-                : "Workbook opened in Excel for the Web."
-            );
+            if (state.mode === "linkTable") {
+                setSuccess("Workbook opened in Excel for the Web.");
+            } else {
+                const isDownload =
+                    scope === "powerQuery" ||
+                    state.mode === "powerQuery" ||
+                    state.mode === "download";
+                setSuccess(isDownload
+                    ? "Workbook downloaded successfully."
+                    : "Workbook opened in Excel for the Web."
+                );
+            }
         } catch (err) {
             setError(err instanceof Error ? err.message : String(err));
         } finally {

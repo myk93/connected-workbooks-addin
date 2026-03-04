@@ -2,6 +2,16 @@ import { SelectionData, TableInfo, LinkedQuery } from "../types/addin";
 import { extractMFormula } from "./mashupExtractor";
 
 /**
+ * Returns the current workbook's URL if it is hosted on SharePoint or OneDrive
+ * (i.e. starts with https://), otherwise null.
+ * A null result means the "Link Table" export mode is unavailable.
+ */
+export function getWorkbookUrl(): string | null {
+    const url = Office.context.document.url;
+    return url && url.startsWith("https://") ? url : null;
+}
+
+/**
  * All Office.js interactions are isolated here so they can be mocked in tests.
  */
 

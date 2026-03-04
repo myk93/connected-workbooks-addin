@@ -1,4 +1,4 @@
-export type ExportMode = "download" | "openInWeb" | "powerQuery";
+export type ExportMode = "download" | "openInWeb" | "powerQuery" | "linkTable";
 
 /** Determines what data is used when the Export dialog is confirmed */
 export type ExportScope = "selection" | "fullTable" | "powerQuery";
@@ -32,4 +32,6 @@ export interface AppState {
     queryMashup: string;
     queryName: string;
     refreshOnOpen: boolean;
+    workbookUrl: string | null;  // linkTable: source workbook URL
+    linkQueryName: string;       // linkTable: name for the generated query
 }
