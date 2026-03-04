@@ -47,8 +47,6 @@ cd connected-workbooks-addin
 npm install
 ```
 
-> **Note:** The add-in depends on `@microsoft/connected-workbooks` via a local `file:` reference. Make sure the `connected-workbooks` library folder is present at `../connected-workbooks` relative to this folder, or update the path in `package.json`.
-
 ### 2. Install dev certificates (one-time)
 
 The dev server must run over HTTPS for Excel to load it. Run this once:
@@ -185,7 +183,7 @@ For a detailed diagram of how data flows through the app, see [ARCHITECTURE.md](
 - **Fluent UI v9** (Microsoft's design system)
 - **Webpack 5** with HTTPS dev server
 - **Office.js** (loaded from CDN, never bundled)
-- **@microsoft/connected-workbooks** for workbook generation
+- **[@microsoft/connected-workbooks](https://www.npmjs.com/package/@microsoft/connected-workbooks)** for workbook generation
 
 ---
 
